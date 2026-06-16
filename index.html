@@ -3,25 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجر Abkarino الاحترافي</title>
+    <title>BozoStore | متجر الأناقة</title>
     <style>
-        /* CSS الخرافي */
-        :root { --main-color: #00d4ff; --bg-dark: #0f0c29; }
-        body { background: var(--bg-dark); color: white; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px; }
-        .hero { text-align: center; padding: 50px 0; }
-        .hero h1 { font-size: 3rem; background: linear-gradient(to right, #00d4ff, #ff00ea); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; margin-top: 30px; }
-        .card { background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1); transition: 0.3s; text-align: center; }
-        .card:hover { border-color: var(--main-color); transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
-        .price { color: var(--main-color); font-weight: bold; font-size: 1.4rem; margin: 15px 0; }
-        button { background: var(--main-color); border: none; padding: 10px 20px; border-radius: 8px; color: black; font-weight: bold; cursor: pointer; }
+        body { background: #0a0a0c; color: #fff; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; }
+        
+        /* الهيدر الاحترافي */
+        .hero { text-align: center; padding: 60px 20px; background: linear-gradient(180deg, #1a1a2e 0%, #0a0a0c 100%); }
+        .hero h1 { font-size: 3rem; margin: 0; background: linear-gradient(90deg, #00d4ff, #9d50bb); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* شبكة المنتجات (السر هنا) */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; padding: 20px; max-width: 1000px; margin: auto; }
+        
+        /* كارت المنتج الخرافي */
+        .card { background: #16161a; border: 1px solid #2d2d3a; border-radius: 20px; padding: 25px; text-align: center; transition: 0.3s; }
+        .card:hover { border-color: #00d4ff; transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,212,255,0.1); }
+        .card h3 { margin-top: 0; color: #e1e1e6; }
+        .price { color: #00d4ff; font-weight: bold; font-size: 1.5rem; margin: 15px 0; display: block; }
+        button { background: linear-gradient(90deg, #00d4ff, #9d50bb); border: none; padding: 12px 30px; border-radius: 50px; color: white; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        button:hover { opacity: 0.8; transform: scale(1.05); }
     </style>
 </head>
 <body>
 
     <div class="hero">
-        <h1>متجر BozoStore 📱</h1>
-        <p>أحدث الموبايلات بأفضل الأسعار</p>
+        <h1>BozoStore 📱</h1>
+        <p>أحدث التكنولوجيا بين يديك</p>
     </div>
 
     <div id="product-list" class="grid"></div>
@@ -30,35 +36,27 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
         import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 
-        // حط هنا الـ Config بتاع مشروعك يا بطل
-        const firebaseConfig = {
-            apiKey: "YOUR_API_KEY",
-            authDomain: "YOUR_PROJECT.firebaseapp.com",
-            projectId: "YOUR_PROJECT_ID",
-            storageBucket: "YOUR_PROJECT.appspot.com",
-            messagingSenderId: "YOUR_ID",
-            appId: "YOUR_APP_ID"
-        };
-
+        // تأكد من وضع بياناتك هنا بدقة
+        const firebaseConfig = { /* ... */ }; 
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        async function fetchProducts() {
+        async function loadData() {
             const list = document.getElementById("product-list");
-            const querySnapshot = await getDocs(collection(db, "Mobile-store"));
+            const snapshot = await getDocs(collection(db, "Mobile-store"));
             list.innerHTML = "";
-            querySnapshot.forEach((doc) => {
+            snapshot.forEach(doc => {
                 const p = doc.data();
                 list.innerHTML += `
                     <div class="card">
                         <h3>${p.Mobile}</h3>
-                        <div class="price">${p.Price} جنيه</div>
-                        <button onclick="alert('تم الطلب!')">اطلب الآن</button>
+                        <span class="price">${p.Price} ج.م</span>
+                        <button>اطلب الآن</button>
                     </div>
                 `;
             });
         }
-        fetchProducts();
+        loadData();
     </script>
 </body>
 </html>
