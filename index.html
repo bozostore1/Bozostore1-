@@ -1,18 +1,64 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر Abkarino الاحترافي</title>
+    <style>
+        /* CSS الخرافي */
+        :root { --main-color: #00d4ff; --bg-dark: #0f0c29; }
+        body { background: var(--bg-dark); color: white; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px; }
+        .hero { text-align: center; padding: 50px 0; }
+        .hero h1 { font-size: 3rem; background: linear-gradient(to right, #00d4ff, #ff00ea); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; margin-top: 30px; }
+        .card { background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1); transition: 0.3s; text-align: center; }
+        .card:hover { border-color: var(--main-color); transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+        .price { color: var(--main-color); font-weight: bold; font-size: 1.4rem; margin: 15px 0; }
+        button { background: var(--main-color); border: none; padding: 10px 20px; border-radius: 8px; color: black; font-weight: bold; cursor: pointer; }
+    </style>
 </head>
 <body>
-    <header>
+
+    <div class="hero">
         <h1>متجر BozoStore 📱</h1>
-    </header>
+        <p>أحدث الموبايلات بأفضل الأسعار</p>
+    </div>
 
-    <main>
-        <h2 class="section-title">أحدث الهواتف المتاحة</h2>
-        <div id="product-list" class="grid-container"></div>
-    </main>
+    <div id="product-list" class="grid"></div>
 
-    <script type="module" src="app.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+
+        // حط هنا الـ Config بتاع مشروعك يا بطل
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_PROJECT.firebaseapp.com",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_PROJECT.appspot.com",
+            messagingSenderId: "YOUR_ID",
+            appId: "YOUR_APP_ID"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        async function fetchProducts() {
+            const list = document.getElementById("product-list");
+            const querySnapshot = await getDocs(collection(db, "Mobile-store"));
+            list.innerHTML = "";
+            querySnapshot.forEach((doc) => {
+                const p = doc.data();
+                list.innerHTML += `
+                    <div class="card">
+                        <h3>${p.Mobile}</h3>
+                        <div class="price">${p.Price} جنيه</div>
+                        <button onclick="alert('تم الطلب!')">اطلب الآن</button>
+                    </div>
+                `;
+            });
+        }
+        fetchProducts();
+    </script>
 </body>
 </html>
