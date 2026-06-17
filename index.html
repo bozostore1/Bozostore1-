@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BOZO STORE | B.Tech Level</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+<style>
+/* =========================
+   BOZO STORE - B.TECH LEVEL CSS
+========================= */
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+}
+
+body {
+    background: #f6f7fb;
+    color: #111827;
+    overflow-x: hidden;
+}
+
+/* ================= TOPBAR ================= */
+
+.topbar {
+    background: #111827;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    font-size: 13px;
+}
+
+/* ================= HEADER ================= */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+
+/* SEARCH */
+
+.search {
+    flex: 1;
+    display: flex;
+    margin: 0 20px;
+    background: #f3f4f6;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.search input {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 14px;
+    direction: rtl;
+}
+
+.search button {
+    border: none;
+    background: #c0440e;
+    color: #fff;
+    padding: 0 18px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.2s;
+}
+
+.search button:hover {
+    background: #a33a0c;
+}
+
+/* CART BTN */
+
+.actions button {
+    background: #c0440e;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+.actions button:hover {
+    background: #a33a0c;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    height: 420px;
+}
+
+.hero-slide {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, #111827, #1f2937);
+    color: #fff;
+    padding: 20px;
+}
+
+.hero-slide h1 {
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+.hero-slide p {
+    opacity: 0.75;
+    margin-top: 12px;
+    font-size: 16px;
+}
+
+/* ================= CATEGORIES ================= */
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    padding: 30px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.cat {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.cat:hover {
+    transform: translateY(-5px);
+    background: #c0440e;
+    color: #fff;
+    box-shadow: 0 15px 30px rgba(192,68,14,0.25);
+}
+
+/* ================= OFFERS ================= */
+
+.offers {
+    padding: 0 20px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.offerBox {
+    background: #111827;
+    color: #fff;
+    padding: 25px 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.offerBox h2 {
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.offerBox p {
+    opacity: 0.6;
+    margin-top: 4px;
+}
+
+.timer {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.timer span {
+    background: #1f2937;
+    padding: 10px 14px;
+    border-radius: 10px;
+    min-width: 48px;
+    text-align: center;
+}
+
+.timer-sep {
+    opacity: 0.5;
+}
+
+/* ================= SECTION ================= */
+
+.section {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.section h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+/* ================= PRODUCT CARD ================= */
+
+.productCard {
+    background: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.07);
+    transition: transform 0.25s, box-shadow 0.25s;
+    height: 100%;
+}
+
+.productCard:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 40px rgba(0,0,0,0.12);
+}
+
+.productCard img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    background: #f9fafb;
+    padding: 20px;
+    display: block;
+}
+
+.productInfo {
+    padding: 15px;
+}
+
+.productName {
+    font-weight: 700;
+    margin-bottom: 6px;
+    font-size: 15px;
+}
+
+.productPrice {
+    color: #c0440e;
+    font-weight: 900;
+    font-size: 17px;
+    margin-bottom: 12px;
+}
+
+.actionsBtn {
+    display: flex;
+    gap: 8px;
+}
+
+.actionsBtn button {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 14px;
+    transition: opacity 0.2s, transform 0.15s;
+}
+
+.actionsBtn button:hover {
+    opacity: 0.85;
+    transform: scale(0.97);
+}
+
+.btn-add {
+    background: #111827;
+    color: #fff;
+}
+
+.btn-view {
+    background: #e5e7eb;
+    color: #111827;
+}
+
+/* ================= SEARCH RESULTS OVERLAY ================= */
+
+#searchResults {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 600px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    z-index: 1500;
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 10px 0;
+}
+
+#searchResults.active {
+    display: block;
+}
+
+.searchItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    border-bottom: 1px solid #f3f4f6;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.searchItem:last-child {
+    border-bottom: none;
+}
+
+.searchItem:hover {
+    background: #f9fafb;
+}
+
+.searchItem .sName {
+    font-weight: 700;
+}
+
+.searchItem .sPrice {
+    color: #c0440e;
+    font-weight: 800;
+}
+
+.searchItem .sAdd {
+    background: #111827;
+    color: #fff;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.searchOverlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1400;
+}
+
+.searchOverlay.active {
+    display: block;
+}
+
+/* ================= CART ================= */
+
+.cart {
+    position: fixed;
+    top: 0;
+    right: -400px; /* RTL: slide from right */
+    width: 340px;
+    height: 100%;
+    background: #fff;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+    transition: right 0.3s ease;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart.active {
+    right: 0;
+}
+
+.cartHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    border-bottom: 1px solid #eee;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.cartHeader button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #6b7280;
+    transition: color 0.2s;
+}
+
+.cartHeader button:hover {
+    color: #111827;
+}
+
+#cartItems {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px 0;
+}
+
+.cartItem {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 14px 20px;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.cartItem strong {
+    font-size: 14px;
+}
+
+.cartItem .itemPrice {
+    color: #c0440e;
+    font-weight: 700;
+}
+
+.cartItem .removeBtn {
+    align-self: flex-start;
+    background: #fee2e2;
+    color: #dc2626;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 4px;
+    transition: background 0.2s;
+}
+
+.cartItem .removeBtn:hover {
+    background: #fca5a5;
+}
+
+.emptyCart {
+    text-align: center;
+    color: #9ca3af;
+    padding: 40px 20px;
+    font-size: 15px;
+}
+
+.cartFooter {
+    padding: 18px 20px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+#total {
+    font-weight: 800;
+    font-size: 18px;
+    color: #111827;
+}
+
+.cartFooter .checkoutBtn {
+    background: #c0440e;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.cartFooter .checkoutBtn:hover {
+    background: #a33a0c;
+}
+
+/* ================= CART BACKDROP ================= */
+
+.cartBackdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 1999;
+}
+
+.cartBackdrop.active {
+    display: block;
+}
+
+/* ================= QUICK VIEW ================= */
+
+.quick {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 3000;
+}
+
+.quick.active {
+    display: flex;
+}
+
+.quickBox {
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+}
+
+.quickBox h2 {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.quickBox .qPrice {
+    color: #c0440e;
+    font-weight: 900;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.quickBox .qBtn {
+    background: #111827;
+    color: #fff;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 16px;
+    transition: background 0.2s;
+}
+
+.quickBox .qBtn:hover {
+    background: #c0440e;
+}
+
+/* ================= TOAST ================= */
+
+.toast {
+    position: fixed;
+    bottom: 90px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #111827;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 9999;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ================= WHATSAPP ================= */
+
+.wa {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: #25d366;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 10px 25px rgba(37,211,102,0.4);
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    z-index: 1000;
+}
+
+.wa:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 35px rgba(37,211,102,0.5);
+}
+
+/* ================= FOOTER ================= */
+
+.footer {
+    text-align: center;
+    padding: 30px 20px;
+    background: #111827;
+    color: #9ca3af;
+    font-size: 14px;
+    margin-top: 40px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 992px) {
+    .categories {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .search {
+        display: none;
+    }
+
+    .categories {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-slide h1 {
+        font-size: 22px;
+    }
+
+    .offerBox {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .topbar {
+        flex-direction: column;
+        gap: 6px;
+        text-align: center;
+    }
+}
+
+/* ================= SWIPER OVERRIDES ================= */
+
+.productsSwiper .swiper-slide,
+.productsSwiper2 .swiper-slide,
+.productsSwiper3 .swiper-slide {
+    height: auto;
+}
+</style>
+
+<style>
+#pageLoader{position:fixed;inset:0;background:#fff;z-index:99999;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:bold}
+.whatsapp-float{position:fixed;bottom:20px;left:20px;z-index:9999;text-decoration:none;padding:12px 16px;border-radius:50px;background:#25D366;color:#fff}
+.toast-msg{position:fixed;top:20px;right:20px;background:#111827;color:#fff;padding:12px 18px;border-radius:10px;display:none;z-index:9999}
+</style>
+
+
+<style>
+#searchResults{animation:fadeSearch .18s ease;}
+@keyframes fadeSearch{
+from{opacity:0;transform:translateX(-50%) translateY(-8px);}
+to{opacity:1;transform:translateX(-50%) translateY(0);}
+}
+.searchItem{gap:12px;}
+.search input:focus{background:#fff;}
+</style>
+
+
+<style>
+.discountBadge{
+position:absolute;top:12px;left:12px;background:#ef4444;color:#fff;
+padding:6px 10px;border-radius:10px;font-size:13px;font-weight:800;z-index:10}
+.productCard{position:relative}
+.rating{margin:8px 0;font-size:14px}
+.rating span{color:#6b7280;margin-right:5px}
+.prices{display:flex;flex-direction:column;gap:4px;margin-bottom:12px}
+.oldPrice{text-decoration:line-through;color:#9ca3af;font-size:13px}
+.productCard:hover img{transform:scale(1.06)}
+.productCard img{transition:.35s}
+</style>
+
+</head>
+
+<body>
+
+<!-- ================= TOP BAR ================= -->
+<div class="topbar">
+    <div>🚚 شحن سريع لجميع المحافظات</div>
+    <div>🛡️ ضمان رسمي على كل المنتجات</div>
+</div>
+
+<!-- ================= HEADER ================= -->
+<header class="header">
+    <div class="logo">🛒 BOZO STORE</div>
+
+    <div class="search">
+        <input id="searchInput" type="text" placeholder="ابحث عن موبايل، سماعة، ساعة...">
+        <button onclick="triggerSearch()">🔍</button>
+    </div>
+
+    <div class="actions">
+        <button id="cartBtn">🛒 <span id="cartCount">0</span></button>
+    </div>
+
+<button id="loginBtn" onclick="openLogin()" style="margin:8px;padding:8px 12px">👤 تسجيل الدخول</button>
+<span id="userArea" style="display:none;margin:8px"></span>
+
+<div id="loginModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:9999;align-items:center;justify-content:center">
+<div style="background:#fff;padding:20px;border-radius:12px;width:90%;max-width:380px">
+<h3>BOZO STORE</h3>
+
+<input id="regUser" type="text" placeholder="اسم المستخدم" style="width:100%;padding:10px;margin:5px 0">
+<input id="regPass" type="password" placeholder="كلمة المرور" style="width:100%;padding:10px;margin:5px 0">
+<button onclick="registerUser()" style="width:100%;padding:10px">إنشاء حساب</button>
+
+<hr>
+
+<input id="loginUser" type="text" placeholder="اسم المستخدم" style="width:100%;padding:10px;margin:5px 0">
+<input id="loginPass" type="password" placeholder="كلمة المرور" style="width:100%;padding:10px;margin:5px 0">
+<button onclick="loginUser()" style="width:100%;padding:10px">تسجيل الدخول</button>
+</div></div>
+
+<script>
+function openLogin(){
+ document.getElementById('loginModal').style.display='flex';
+}
+
+function registerUser(){
+ const user={
+   username:document.getElementById('regUser').value,
+   password:document.getElementById('regPass').value
+ };
+ localStorage.setItem('bozoUser',JSON.stringify(user));
+ alert('تم إنشاء الحساب');
+}
+
+function loginUser(){
+ const saved=JSON.parse(localStorage.getItem('bozoUser')||'null');
+ const u=document.getElementById('loginUser').value;
+ const p=document.getElementById('loginPass').value;
+
+ if(saved && saved.username===u && saved.password===p){
+   localStorage.setItem('bozoLogged','1');
+   localStorage.setItem('bozoName',u);
+   updateUserUI();
+   document.getElementById('loginModal').style.display='none';
+ }else{
+   alert('بيانات غير صحيحة');
+ }
+}
+
+function logoutUser(){
+ localStorage.removeItem('bozoLogged');
+ localStorage.removeItem('bozoName');
+ location.reload();
+}
+
+function updateUserUI(){
+ if(localStorage.getItem('bozoLogged')){
+   document.getElementById('loginBtn').style.display='none';
+   document.getElementById('userArea').style.display='inline';
+   document.getElementById('userArea').innerHTML=
+   '👋 '+localStorage.getItem('bozoName')+
+   ' <button onclick="logoutUser()">خروج</button>';
+ }
+}
+
+window.addEventListener('load',updateUserUI);
+</script>
+
+</header>
+
+<!-- SEARCH OVERLAY & RESULTS -->
+<div class="searchOverlay" id="searchOverlay" onclick="closeSearch()"></div>
+<div id="searchResults"></div>
+
+<!-- ================= HERO ================= -->
+<section class="hero swiper heroSwiper">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide hero-slide">
+            <h1>أحدث الموبايلات بأسعار خرافية</h1>
+            <p>BOZO STORE - تجربة تسوق احترافية</p>
+        </div>
+        <div class="swiper-slide hero-slide">
+            <h1>سماعات أصلية بجودة صوت عالية</h1>
+            <p>AirPods - JBL - Galaxy Buds</p>
+        </div>
+        <div class="swiper-slide hero-slide">
+            <h1>الساعات الذكية الجديدة</h1>
+            <p>تابع صحتك وأداءك اليومي</p>
+        </div>
+    </div>
+</section>
+
+<!-- ================= CATEGORIES ================= -->
+<section class="categories">
+    <div class="cat" onclick="filterCategory('phones')">📱 موبايلات</div>
+    <div class="cat" onclick="filterCategory('headphones')">🎧 سماعات</div>
+    <div class="cat" onclick="filterCategory('watches')">⌚ ساعات</div>
+    <div class="cat" onclick="filterCategory('accessories')">🔌 إكسسوارات</div>
+    <div class="cat" onclick="filterCategory('offers')">⚡ عروض</div>
+</section>
+
+<!-- ================= OFFERS ================= -->
+
+<!-- ADVANCED FILTERS -->
+<section class="filter-box" style="margin:20px auto;max-width:1200px;padding:20px;background:#fff;border-radius:12px;box-shadow:0 4px 6px rgba(0,0,0,.1);">
+<div id="resultsCount" style="margin-bottom:12px;font-weight:700;">عرض جميع المنتجات</div>
+<div class="filter-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px;">
+<select id="fBrand" onchange="filterProducts()" style="padding:10px;border-radius:8px;border:1px solid #ddd;">
+<option value="all">كل الماركات</option>
+<option value="Samsung">Samsung</option>
+<option value="Apple">Apple</option>
+<option value="Xiaomi">Xiaomi</option>
+<option value="Oppo">Oppo</option>
+</select>
+<input type="number" id="fPrice" placeholder="أقصى سعر" oninput="filterProducts()" style="padding:10px;border-radius:8px;border:1px solid #ddd;">
+<input type="number" id="fRam" placeholder="الرام (GB)" oninput="filterProducts()" style="padding:10px;border-radius:8px;border:1px solid #ddd;">
+<input type="number" id="fStorage" placeholder="التخزين (GB)" oninput="filterProducts()" style="padding:10px;border-radius:8px;border:1px solid #ddd;">
+<input type="number" id="fCamera" placeholder="الكاميرا (MP)" oninput="filterProducts()" style="padding:10px;border-radius:8px;border:1px solid #ddd;">
+<button onclick="resetFilters()" style="padding:10px;border:none;background:#111827;color:#fff;border-radius:8px;">إعادة تعيين</button>
+</div>
+</section>
+
+<section class="offers">
+    <div class="offerBox">
+        <div>
+            <h2>🔥 عروض BOZO STORE</h2>
+            <p>تنتهي قريبًا — لا تفوت الفرصة</p>
+        </div>
+        <div class="timer">
+            <span id="d">00</span>
+            <span class="timer-sep">:</span>
+            <span id="h">00</span>
+            <span class="timer-sep">:</span>
+            <span id="m">00</span>
+            <span class="timer-sep">:</span>
+            <span id="s">00</span>
+        </div>
+    </div>
+</section>
+
+<!-- ================= PRODUCTS ================= -->
+<section class="section" id="sec-phones">
+    <h2>📱 أحدث الموبايلات</h2>
+    <div class="swiper productsSwiper">
+        <div class="swiper-wrapper" id="phones"></div>
+    </div>
+</section>
+
+<section class="section" id="sec-headphones">
+    <h2>🎧 أفضل السماعات</h2>
+    <div class="swiper productsSwiper2">
+        <div class="swiper-wrapper" id="headphones"></div>
+    </div>
+</section>
+
+<section class="section" id="sec-watches">
+    <h2>⌚ الساعات الذكية</h2>
+    <div class="swiper productsSwiper3">
+        <div class="swiper-wrapper" id="watches"></div>
+    </div>
+</section>
+
+<!-- ================= CART ================= -->
+<div class="cartBackdrop" id="cartBackdrop" onclick="closeCartFn()"></div>
+
+<div class="cart" id="cart">
+    <div class="cartHeader">
+        <h3>🛒 السلة</h3>
+        <button id="closeCart" aria-label="إغلاق السلة">✖</button>
+    </div>
+    <div id="cartItems"></div>
+    <div class="cartFooter">
+        <span id="total">0 EGP</span>
+        <button class="checkoutBtn" onclick="checkout()">إتمام الطلب</button>
+    </div>
+</div>
+
+<!-- ================= QUICK VIEW ================= -->
+<div class="quick" id="quick">
+    <div class="quickBox" id="quickBox"></div>
+</div>
+
+<!-- ================= TOAST ================= -->
+<div class="toast" id="toast"></div>
+
+<!-- ================= WHATSAPP ================= -->
+<a class="wa" href="https://wa.me/201000000000" target="_blank" title="تواصل معنا على واتساب">💬</a>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+    BOZO STORE © 2026 — جميع الحقوق محفوظة
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+/* =========================
+   BOZO STORE - FIXED JS
+========================= */
+
+/* ================= DATA ================= */
+
+const allProducts = [
+    /* ── موبايلات ── */
+    { id:  1, name: "iPhone 15 Pro Max",        price: 55000, cat: "phones",      emoji: "📱" },
+    { id:  2, name: "Samsung S24 Ultra",         price: 48000, cat: "phones",      emoji: "📱" },
+    { id:  3, name: "Xiaomi 14 Pro",             price: 22000, cat: "phones",      emoji: "📱" },
+    { id:  4, name: "OPPO Find X6",              price: 19500, cat: "phones",      emoji: "📱" },
+    { id: 11, name: "iPhone 15",                 price: 38000, cat: "phones",      emoji: "📱" },
+    { id: 12, name: "Samsung A55",               price: 13500, cat: "phones",      emoji: "📱" },
+    { id: 13, name: "Redmi Note 13 Pro",         price:  8900, cat: "phones",      emoji: "📱" },
+    { id: 14, name: "OPPO Reno 11",              price: 14000, cat: "phones",      emoji: "📱" },
+    { id: 15, name: "Vivo V30 Pro",              price: 16500, cat: "phones",      emoji: "📱" },
+    { id: 16, name: "Realme GT 5 Pro",           price: 18000, cat: "phones",      emoji: "📱" },
+    { id: 17, name: "OnePlus 12",                price: 26000, cat: "phones",      emoji: "📱" },
+    { id: 18, name: "Google Pixel 8",            price: 32000, cat: "phones",      emoji: "📱" },
+    { id: 19, name: "Huawei Nova 12",            price: 12000, cat: "phones",      emoji: "📱" },
+    { id: 20, name: "Infinix Zero 30",           price:  7500, cat: "phones",      emoji: "📱" },
+    /* ── سماعات ── */
+    { id:  5, name: "AirPods Pro 2",             price: 12000, cat: "headphones",  emoji: "🎧" },
+    { id:  6, name: "JBL Tune 770NC",            price:  3500, cat: "headphones",  emoji: "🎧" },
+    { id:  7, name: "Galaxy Buds 2 Pro",         price:  7500, cat: "headphones",  emoji: "🎧" },
+    { id: 21, name: "Sony WH-1000XM5",           price: 14500, cat: "headphones",  emoji: "🎧" },
+    { id: 22, name: "Beats Studio Pro",          price: 11000, cat: "headphones",  emoji: "🎧" },
+    { id: 23, name: "Bose QuietComfort 45",      price: 13000, cat: "headphones",  emoji: "🎧" },
+    { id: 24, name: "JBL Charge 5",              price:  4200, cat: "headphones",  emoji: "🎧" },
+    { id: 25, name: "Anker Soundcore Q45",       price:  1800, cat: "headphones",  emoji: "🎧" },
+    { id: 26, name: "Xiaomi Buds 4 Pro",         price:  3200, cat: "headphones",  emoji: "🎧" },
+    { id: 27, name: "OPPO Enco X2",              price:  2900, cat: "headphones",  emoji: "🎧" },
+    { id: 28, name: "Marshall Monitor II",       price:  8500, cat: "headphones",  emoji: "🎧" },
+    { id: 29, name: "Sennheiser HD 450BT",       price:  5500, cat: "headphones",  emoji: "🎧" },
+    { id: 30, name: "Huawei FreeBuds 5i",        price:  2200, cat: "headphones",  emoji: "🎧" },
+    /* ── ساعات ── */
+    { id:  8, name: "Apple Watch Series 9",      price: 18000, cat: "watches",     emoji: "⌚" },
+    { id:  9, name: "Galaxy Watch 6",            price: 15000, cat: "watches",     emoji: "⌚" },
+    { id: 10, name: "Xiaomi Smart Band 8",       price:  2500, cat: "watches",     emoji: "⌚" },
+];
+
+const phonesData      = allProducts.filter(p => p.cat === "phones");
+const headphonesData  = allProducts.filter(p => p.cat === "headphones");
+const watchesData     = allProducts.filter(p => p.cat === "watches");
+
+/* ================= CART ================= */
+
+let cart = [];
+
+const cartBtn       = document.getElementById("cartBtn");
+const cartSidebar   = document.getElementById("cart");
+const cartBackdrop  = document.getElementById("cartBackdrop");
+const closeCartEl   = document.getElementById("closeCart");
+const cartItemsEl   = document.getElementById("cartItems");
+const cartCountEl   = document.getElementById("cartCount");
+const totalEl       = document.getElementById("total");
+
+function openCart() {
+    cartSidebar.classList.add("active");
+    cartBackdrop.classList.add("active");
+}
+
+function closeCartFn() {
+    cartSidebar.classList.remove("active");
+    cartBackdrop.classList.remove("active");
+}
+
+cartBtn.addEventListener("click", openCart);
+closeCartEl.addEventListener("click", closeCartFn);
+
+function addToCart(name, price) {
+    const existing = cart.find(i => i.name === name);
+    if (existing) {
+        existing.qty++;
+    } else {
+        cart.push({ name, price, qty: 1 });
+    }
+    updateCart();
+    showToast(`✅ تمت الإضافة: ${name}`);
+}
+
+function removeItem(index) {
+    cart.splice(index, 1);
+    updateCart();
+}
+
+function updateCart() {
+    cartItemsEl.innerHTML = "";
+    let total = 0;
+
+    if (cart.length === 0) {
+        cartItemsEl.innerHTML = `<div class="emptyCart">🛒<br>السلة فارغة</div>`;
+    } else {
+        cart.forEach((item, index) => {
+            total += item.price * item.qty;
+            const div = document.createElement("div");
+            div.className = "cartItem";
+            div.innerHTML = `
+                <strong>${item.name}</strong>
+                <span class="itemPrice">${item.price.toLocaleString()} EGP × ${item.qty}</span>
+                <button class="removeBtn" onclick="removeItem(${index})">🗑 حذف</button>
+            `;
+            cartItemsEl.appendChild(div);
+        });
+    }
+
+    cartCountEl.textContent = cart.reduce((s, i) => s + i.qty, 0);
+    totalEl.textContent = total.toLocaleString() + " EGP";
+}
+
+function checkout() {
+    if (cart.length === 0) {
+        showToast("⚠️ السلة فارغة!");
+        return;
+    }
+    showToast("🎉 تم استلام طلبك! سنتواصل معك قريبًا");
+    cart = [];
+    updateCart();
+    closeCartFn();
+}
+
+/* ================= QUICK VIEW ================= */
+
+const quick    = document.getElementById("quick");
+const quickBox = document.getElementById("quickBox");
+
+function openQuick(name, price) {
+    quick.classList.add("active");
+    quickBox.innerHTML = `
+        <h2>${name}</h2>
+        <div class="qPrice">${price.toLocaleString()} EGP</div>
+        <button class="qBtn" onclick="addToCart('${name.replace(/'/g,"\\'")}',${price}); closeQuick();">
+            🛒 إضافة للسلة
+        </button>
+    `;
+}
+
+function closeQuick() {
+    quick.classList.remove("active");
+}
+
+quick.addEventListener("click", (e) => {
+    if (e.target === quick) closeQuick();
+});
+
+/* ================= TOAST ================= */
+
+let toastTimer;
+function showToast(msg) {
+    const t = document.getElementById("toast");
+    t.textContent = msg;
+    t.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove("show"), 2500);
+}
+
+/* ================= COUNTDOWN (fixed target date) ================= */
+
+// Fixed end date: won't reset on page reload
+const OFFER_END = new Date("2026-07-01T00:00:00").getTime();
+
+function countdown() {
+    const interval = setInterval(() => {
+        const now      = new Date().getTime();
+        const distance = OFFER_END - now;
+
+        if (distance <= 0) {
+            clearInterval(interval);
+            ["d","h","m","s"].forEach(id => document.getElementById(id).textContent = "00");
+            return;
+        }
+
+        const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("d").textContent = String(d).padStart(2, "0");
+        document.getElementById("h").textContent = String(h).padStart(2, "0");
+        document.getElementById("m").textContent = String(m).padStart(2, "0");
+        document.getElementById("s").textContent = String(s).padStart(2, "0");
+    }, 1000);
+}
+
+countdown();
+
+/* ================= RENDER PRODUCTS ================= */
+
+function makeCard(item) {
+    return `
+        <div class="productCard">
+            <img
+                src="https://placehold.co/300x200/f9fafb/2563eb?text=${encodeURIComponent(item.emoji)}"
+                alt="${item.name}"
+                loading="lazy"
+            >
+            <div class="discountBadge">-25%</div>
+<div class="productInfo">
+                <div class="productName">${item.name}</div>
+<div class="rating">⭐⭐⭐⭐⭐ <span>(4.9)</span></div>
+                <div class="productPrice">${item.price.toLocaleString()} EGP</div>
+                <div class="actionsBtn">
+                    <button class="btn-add"
+                        onclick="addToCart('${item.name.replace(/'/g,"\\'")}', ${item.price})">
+                        🛒 إضافة
+                    </button>
+                    <button class="btn-view"
+                        onclick="openQuick('${item.name.replace(/'/g,"\\'")}', ${item.price})">
+                        👁 عرض
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function render(list, containerId) {
+    const container = document.getElementById(containerId);
+    container.innerHTML = "";
+    list.forEach(item => {
+        const slide = document.createElement("div");
+        slide.className = "swiper-slide";
+        slide.innerHTML = makeCard(item);
+        container.appendChild(slide);
+    });
+}
+
+render(phonesData,     "phones");
+render(headphonesData, "headphones");
+render(watchesData,    "watches");
+
+/* ================= SWIPER INIT ================= */
+
+new Swiper(".heroSwiper", {
+    loop: true,
+    autoplay: { delay: 3500, disableOnInteraction: false },
+    effect: "fade",
+    fadeEffect: { crossFade: true },
+});
+
+const productSwiperConfig = {
+    slidesPerView: 1,
+    spaceBetween: 15,
+    grabCursor: true,
+    breakpoints: {
+        600:  { slidesPerView: 2 },
+        1024: { slidesPerView: 3 },
+    }
+};
+
+new Swiper(".productsSwiper",  productSwiperConfig);
+new Swiper(".productsSwiper2", productSwiperConfig);
+new Swiper(".productsSwiper3", productSwiperConfig);
+
+/* ================= SEARCH ================= */
+
+const searchInput   = document.getElementById("searchInput");
+const searchResults = document.getElementById("searchResults");
+const searchOverlay = document.getElementById("searchOverlay");
+
+searchInput.addEventListener("input", function () {
+    const val = this.value.trim().toLowerCase();
+
+    if (!val) {
+        closeSearch();
+        return;
+    }
+
+    const matches = allProducts.filter(p => p.name.toLowerCase().includes(val));
+    searchResults.innerHTML = "";
+
+    if (matches.length === 0) {
+        searchResults.innerHTML = `<div class="searchItem"><span class="sName" style="color:#9ca3af">لا توجد نتائج</span></div>`;
+    } else {
+        matches.forEach(item => {
+            const div = document.createElement("div");
+            div.className = "searchItem";
+            div.innerHTML = `
+                <span class="sName">${item.emoji} ${item.name}</span>
+                <span class="sPrice">${item.price.toLocaleString()} EGP</span>
+                <button class="sAdd" onclick="addToCart('${item.name.replace(/'/g,"\\'")}',${item.price}); closeSearch();">+ إضافة</button>
+            `;
+            searchResults.appendChild(div);
+        });
+    }
+
+    searchResults.classList.add("active");
+    searchOverlay.classList.add("active");
+});
+
+function triggerSearch() {
+    searchInput.dispatchEvent(new Event("input"));
+}
+
+function closeSearch() {
+    searchResults.classList.remove("active");
+    searchOverlay.classList.remove("active");
+    searchInput.value = "";
+}
+
+/* ================= CATEGORY FILTER ================= */
+
+function filterCategory(cat) {
+    const targets = {
+        phones:      "sec-phones",
+        headphones:  "sec-headphones",
+        watches:     "sec-watches",
+    };
+    const id = targets[cat];
+    if (id) {
+        document.getElementById(id).scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+        showToast("قريبًا — هذا القسم تحت الإنشاء 🚧");
+    }
+}
+
+/* ================= INIT CART ================= */
+updateCart();
+
+/* ================= PRODUCT SCHEMA (JSON-LD) ================= */
+
+// بيانات التقييم لكل منتج (ratingValue, reviewCount)
+const ratingsMap = {
+    1:  { rating: 4.8, reviews: 312 },   // iPhone 15 Pro Max
+    2:  { rating: 4.7, reviews: 278 },   // Samsung S24 Ultra
+    3:  { rating: 4.5, reviews: 194 },   // Xiaomi 14 Pro
+    4:  { rating: 4.4, reviews: 143 },   // OPPO Find X6
+    5:  { rating: 4.9, reviews: 521 },   // AirPods Pro 2
+    6:  { rating: 4.3, reviews: 210 },   // JBL Tune 770NC
+    7:  { rating: 4.6, reviews: 187 },   // Galaxy Buds 2 Pro
+    8:  { rating: 4.8, reviews: 402 },   // Apple Watch Series 9
+    9:  { rating: 4.5, reviews: 334 },   // Galaxy Watch 6
+    10: { rating: 4.2, reviews: 756 },   // Xiaomi Smart Band 8
+    11: { rating: 4.6, reviews: 289 },   // iPhone 15
+    12: { rating: 4.3, reviews: 412 },   // Samsung A55
+    13: { rating: 4.4, reviews: 683 },   // Redmi Note 13 Pro
+    14: { rating: 4.2, reviews: 231 },   // OPPO Reno 11
+    15: { rating: 4.3, reviews: 175 },   // Vivo V30 Pro
+    16: { rating: 4.4, reviews: 198 },   // Realme GT 5 Pro
+    17: { rating: 4.5, reviews: 267 },   // OnePlus 12
+    18: { rating: 4.6, reviews: 319 },   // Google Pixel 8
+    19: { rating: 4.1, reviews: 148 },   // Huawei Nova 12
+    20: { rating: 4.2, reviews: 392 },   // Infinix Zero 30
+    21: { rating: 4.7, reviews: 445 },   // Sony WH-1000XM5
+    22: { rating: 4.5, reviews: 287 },   // Beats Studio Pro
+    23: { rating: 4.6, reviews: 362 },   // Bose QuietComfort 45
+    24: { rating: 4.4, reviews: 519 },   // JBL Charge 5
+    25: { rating: 4.1, reviews: 834 },   // Anker Soundcore Q45
+    26: { rating: 4.3, reviews: 276 },   // Xiaomi Buds 4 Pro
+    27: { rating: 4.2, reviews: 183 },   // OPPO Enco X2
+    28: { rating: 4.6, reviews: 142 },   // Marshall Monitor II
+    29: { rating: 4.5, reviews: 221 },   // Sennheiser HD 450BT
+    30: { rating: 4.0, reviews: 349 },   // Huawei FreeBuds 5i
+};
+
+// توليد Product Schema لكل منتج وحقنه في الـ <head>
+allProducts.forEach(function(item) {
+    const rData   = ratingsMap[item.id] || { rating: 4.0, reviews: 50 };
+    const schema  = {
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": item.name,
+        "description": "اشتري " + item.name + " بأفضل سعر في مصر من BOZO STORE",
+        "brand": {
+            "@type": "Brand",
+            "name": item.name.split(" ")[0]
+        },
+        "offers": {
+            "@type": "Offer",
+            "priceCurrency": "EGP",
+            "price": item.price,
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@type": "Organization",
+                "name": "BOZO STORE"
+            },
+            "url": "https://bozostore.com/products/" + item.id
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": rData.rating,
+            "reviewCount": rData.reviews,
+            "bestRating": "5",
+            "worstRating": "1"
+        }
+    };
+
+    const script  = document.createElement("script");
+    script.type   = "application/ld+json";
+    script.textContent = JSON.stringify(schema, null, 2);
+    document.head.appendChild(script);
+});
+</script>
+
+<script>
+function filterProducts(){
+ const brand=document.getElementById('fBrand')?.value||'all';
+ const price=parseFloat(document.getElementById('fPrice')?.value)||Infinity;
+ const ram=parseInt(document.getElementById('fRam')?.value)||0;
+ const storage=parseInt(document.getElementById('fStorage')?.value)||0;
+ const camera=parseInt(document.getElementById('fCamera')?.value)||0;
+
+ let visible=0;
+ document.querySelectorAll('.productCard').forEach(card=>{
+   const pBrand=card.dataset.brand||'';
+   const pPrice=parseFloat(card.dataset.price||0);
+   const pRam=parseInt(card.dataset.ram||0);
+   const pStorage=parseInt(card.dataset.storage||0);
+   const pCamera=parseInt(card.dataset.camera||0);
+
+   const show=(brand==='all'||pBrand===brand) &&
+              pPrice<=price &&
+              pRam>=ram &&
+              pStorage>=storage &&
+              pCamera>=camera;
+
+   card.style.display=show?'block':'none';
+   if(show) visible++;
+ });
+
+ const el=document.getElementById('resultsCount');
+ if(el) el.textContent='عدد النتائج: '+visible;
+}
+
+function resetFilters(){
+ ['fPrice','fRam','fStorage','fCamera'].forEach(id=>{
+   const e=document.getElementById(id); if(e) e.value='';
+ });
+ const b=document.getElementById('fBrand'); if(b) b.value='all';
+ filterProducts();
+}
+</script>
+
+
+<script>
+const searchInput = document.getElementById("searchInput") || document.querySelector(".search input");
+const searchResults = document.getElementById("searchResults");
+const searchOverlay = document.getElementById("searchOverlay");
+
+function getProducts(){
+ const products=[];
+ document.querySelectorAll(".productCard").forEach(card=>{
+   products.push({
+    name: card.querySelector(".productName")?.textContent.trim() || "",
+    price: card.querySelector(".productPrice")?.textContent.trim() || "",
+    card
+   });
+ });
+ return products;
+}
+
+function renderResults(keyword){
+ if(!searchResults || !searchOverlay || !searchInput) return;
+ const value=keyword.trim().toLowerCase();
+ if(!value){
+   searchResults.classList.remove("active");
+   searchOverlay.classList.remove("active");
+   return;
+ }
+ const filtered=getProducts().filter(p=>p.name.toLowerCase().includes(value));
+ searchResults.innerHTML = filtered.length ? filtered.map(product=>`
+ <div class="searchItem" onclick="openProductFromSearch('${product.name.replace(/'/g,\"\\\\'\")}')">
+   <div><div class="sName">${product.name}</div><div class="sPrice">${product.price}</div></div>
+   <button class="sAdd">عرض</button>
+ </div>`).join("") : '<div class="searchItem">لا توجد نتائج</div>';
+
+ searchResults.classList.add("active");
+ searchOverlay.classList.add("active");
+}
+
+function openProductFromSearch(productName){
+ document.querySelectorAll(".productCard").forEach(card=>{
+   const name=card.querySelector(".productName")?.textContent.trim();
+   if(name===productName){
+      card.scrollIntoView({behavior:"smooth",block:"center"});
+      card.style.boxShadow="0 0 0 4px rgba(192,68,14,.35)";
+      setTimeout(()=>card.style.boxShadow="",2000);
+   }
+ });
+ searchResults.classList.remove("active");
+ searchOverlay.classList.remove("active");
+}
+
+if(searchInput){
+ searchInput.id="searchInput";
+ searchInput.addEventListener("input",e=>renderResults(e.target.value));
+}
+
+if(searchOverlay){
+ searchOverlay.addEventListener("click",()=>{
+   searchResults.classList.remove("active");
+   searchOverlay.classList.remove("active");
+ });
+}
+</script>
+
+
+
+<style>
+#bozoPanel{position:fixed;right:15px;bottom:15px;z-index:9999;display:flex;gap:8px;flex-wrap:wrap}
+#favoritesPage,#accountPage,#ordersPage{display:none;position:fixed;inset:0;background:#fff;z-index:10000;padding:20px;overflow:auto}
+</style>
+
+<div id="bozoPanel">
+<button onclick="openFavorites()">❤️ المفضلة</button>
+<button onclick="openAccount()">👤 حسابي</button>
+<button onclick="openOrders()">📦 طلباتي</button>
+<button onclick="toggleDarkMode()">🌙 الوضع الليلي</button>
+</div>
+
+<div id="favoritesPage"><h2>المفضلة</h2><div id="favoritesContent"></div><button onclick="closePages()">إغلاق</button></div>
+<div id="accountPage"><h2>حسابي</h2><div id="accountContent"></div><button onclick="closePages()">إغلاق</button></div>
+<div id="ordersPage"><h2>طلباتي</h2><div id="ordersContent"></div><button onclick="closePages()">إغلاق</button></div>
+
+<script>
+function closePages(){
+ ['favoritesPage','accountPage','ordersPage'].forEach(id=>document.getElementById(id).style.display='none');
+}
+
+function openFavorites(){
+ document.getElementById('favoritesPage').style.display='block';
+ let f=JSON.parse(localStorage.getItem('bozoFavs')||'[]');
+ document.getElementById('favoritesContent').innerHTML=f.length?f.join('<br>'):'لا توجد منتجات مفضلة';
+}
+
+function openAccount(){
+ document.getElementById('accountPage').style.display='block';
+ let n=localStorage.getItem('bozoName')||'زائر';
+ document.getElementById('accountContent').innerHTML='اسم المستخدم: '+n;
+}
+
+function openOrders(){
+ document.getElementById('ordersPage').style.display='block';
+ let o=JSON.parse(localStorage.getItem('bozoOrders')||'[]');
+ document.getElementById('ordersContent').innerHTML='عدد الطلبات: '+o.length;
+}
+
+function toggleDarkMode(){
+ document.body.classList.toggle('darkmode');
+ localStorage.setItem('bozoDark',document.body.classList.contains('darkmode'));
+}
+
+window.addEventListener('load',()=>{
+ if(localStorage.getItem('bozoDark')==='true'){
+   document.body.classList.add('darkmode');
+ }
+});
+
+const dark=document.createElement('style');
+dark.innerHTML='.darkmode{background:#111 !important;color:#eee !important}';
+document.head.appendChild(dark);
+</script>
+
+</body>
+</html>
